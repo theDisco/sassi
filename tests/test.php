@@ -58,6 +58,8 @@ class SassiTest
 
     private function stringSame($expectedString, $actualString)
     {
+        $expectedString = preg_replace('#/*(.*)*/#', '', $expectedString);
+        $actualString = preg_replace('#/*(.*)*/#', '', $actualString);
         if ($expectedString !== $actualString) {
             throw new Exception("Strings are not the same");
         }
@@ -65,7 +67,9 @@ class SassiTest
 
     private function fileSame($expectedPath, $actualPath)
     {
-        if (file_get_contents($expectedPath) !== file_get_contents($actualPath)) {
+        $expected = preg_replace('#/*(.*)*/#', '', file_get_contents($expectedPath));
+        $actual = preg_replace('#/*(.*)*/#', '', file_get_contents($actualPath));
+        if ($expected !== $actual) {
             throw new Exception("Files are not the same");
         }
     }
