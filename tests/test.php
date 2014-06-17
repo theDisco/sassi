@@ -53,7 +53,7 @@ class SassiTest
         $sassi->setSourceMapFilePath($this->sourceMapPath);
         $sassi->setOutputPath($this->outputPath);
         $sassi->setImagePath('img');
-        $sassi->compileFile($this->mainPath), PHP_EOL;
+        $sassi->compileFile($this->mainPath);
     }
 
     private function stringSame($expectedString, $actualString)
