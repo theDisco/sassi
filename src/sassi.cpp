@@ -48,6 +48,8 @@ string Sassi::getSourceMapFilePath()
     if (source_map_file_path == "") {
         throw Php::Exception("Source map file path not set.");
     }
+    char* empty = const_cast<char *>("");
+    writeToFile(source_map_file_path, empty);
     return source_map_file_path;
 }
 
@@ -61,6 +63,8 @@ string Sassi::getOutputPath()
     if (output_path == "") {
         throw Php::Exception("Output path not set.");
     }
+    char* empty = const_cast<char *>("");
+    writeToFile(output_path, empty);
     return output_path;
 }
 
@@ -81,14 +85,12 @@ Php::Value Sassi::compileFile(Php::Parameters &params)
     context->options.output_style = getStyle();
     int source_comments = getSourceComments();
     context->options.source_comments = source_comments;
-    context->output_path = getOutputPath().c_str();
     context->options.image_path = getImagePath().c_str();
     if (source_comments == SASS_SOURCE_COMMENTS_MAP) {
+        context->output_path = getOutputPath().c_str();
         context->source_map_file = getSourceMapFilePath().c_str();
     }
-
-    const char* input_path = params[0].stringValue().c_str();
-    context->input_path = input_path;
+    context->input_path = params[0].stringValue().c_str();
 
     sass_compile_file(context);
 
