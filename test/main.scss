@@ -1,0 +1,19 @@
+$color: #ffffff;
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+h1 {
+  span {
+    background-color: $color;
+    @include size(10px, 20px);
+  }
+}
+
+h2 {
+    background: image-url("test.png");
+}
+
+@import "imported";

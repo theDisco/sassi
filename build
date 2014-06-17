@@ -1,0 +1,8 @@
+#!/bin/bash
+make
+if [ "$?" -gt "0" ]; then
+    echo "Build failed"
+    exit
+fi
+make install
+make clean
