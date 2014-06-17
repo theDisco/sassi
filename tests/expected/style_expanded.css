@@ -1,0 +1,13 @@
+/* line 9, /vagrant/project/tests/scss/main.scss */
+h1 span {
+  background-color: #ffffff;
+  width: 10px;
+  height: 20px; }
+
+/* line 15, /vagrant/project/tests/scss/main.scss */
+h2 {
+  background: url("/test.png"); }
+
+/* line 1, /vagrant/project/tests/scss/imported */
+h3 {
+  color: #ffffff; }

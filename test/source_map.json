@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "file": "source_map.css",
-  "sources": ["main.scss","imported.scss"],
-  "names": [],
-  "mappings": "AAOA,GAAG,KAEC,iBATI,QAGN,MAOgB,KANhB,OAMsB,MAIxB,GACI,WAAY,qBCfhB,GACI,MDDI"
-}

@@ -4,6 +4,8 @@ CLI_DIR = /etc/php5/cli/conf.d
 EXTENSION_DIR = $(shell php-config --extension-dir)
 EXTENSION = ${NAME}.so
 INI = ${NAME}.ini
+PHP_BIN = `which php`
+TEST_SUITE = tests/test.php
 COMPILER = g++
 LINKER = g++
 COMPILER_FLAGS = -Wall -c -O2 -std=c++11 -fpic -o
@@ -30,6 +32,9 @@ install:
 	${CP} ${EXTENSION} ${EXTENSION_DIR}
 	${CP} ${INI} ${INI_DIR} 
 	${LN} ${INI_DIR}/${INI} ${CLI_DIR}/30-${INI}
+
+test:
+	${PHP_BIN} ${TEST_SUITE}
 
 clean:
 	${RM} ${EXTENSION} ${OBJECTS}

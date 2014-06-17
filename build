@@ -5,4 +5,5 @@ if [ "$?" -gt "0" ]; then
     exit
 fi
 make install
+make test
 make clean
